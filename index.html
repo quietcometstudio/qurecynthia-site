@@ -67,7 +67,7 @@
     color: var(--cream);
     text-shadow: 0 2px 18px rgba(0,0,0,0.55);
   }
-  .tagline { font-size: clamp(18px, 2.6vw, 24px); color: var(--cream); margin: 10px 0 18px; max-width: 34ch; text-shadow: 0 1px 10px rgba(0,0,0,0.6); }
+  .tagline { font-size: clamp(18px, 2.6vw, 24px); color: var(--cream); margin: 10px 0 18px; text-shadow: 0 1px 10px rgba(0,0,0,0.6); }
   .pills { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
   .pill {
     display: inline-flex; align-items: center; gap: 8px;
@@ -81,7 +81,7 @@
 
   /* sections */
   section { padding-block: 44px; }
-  .lead { font-size: clamp(18px, 2.2vw, 21px); max-width: 62ch; color: var(--cream); margin: 0; }
+  .lead { font-size: clamp(18px, 2.2vw, 21px); color: var(--cream); margin: 0; }   /* (full width: the user, 11-07) */
   .eyebrow { font: 600 13px/1 "Nunito", sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin: 0 0 12px; }
 
   .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 28px; }
@@ -96,11 +96,11 @@
   .gallery figure { margin: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; min-width: 0; }
   .gallery a { display: block; line-height: 0; }
   .gallery img { width: 100%; max-width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; display: block; }   /* (height: auto - the tag's height="900" made every picture a tall slice) */
-  .gallery figcaption { padding: 10px 14px 12px; font-size: 15px; color: var(--soft); text-wrap: balance; }
+  .gallery figcaption { padding: 10px 12px 12px; font-size: 14px; color: var(--soft); text-wrap: balance; }
 
   .online { background: var(--deep); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .online h2 { font-size: clamp(24px, 3.4vw, 32px); margin-bottom: 10px; }
-  .online p { margin: 0; max-width: 62ch; color: var(--soft); }
+  .online p { margin: 0; color: var(--soft); }
 
   footer { padding-block: 30px 40px; color: var(--soft); font-size: 15px; }
   footer .row { display: flex; flex-wrap: wrap; gap: 8px 22px; justify-content: space-between; align-items: center; }
