@@ -92,7 +92,7 @@
   .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-top: 24px; }
   .gallery figure { margin: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; min-width: 0; }
   .gallery a { display: block; line-height: 0; }
-  .gallery img { width: 100%; max-width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+  .gallery img { width: 100%; max-width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; display: block; }   /* (height: auto - the tag's height="900" made every picture a tall slice) */
   .gallery figcaption { padding: 10px 14px 12px; font-size: 15px; color: var(--soft); }
 
   .online { background: var(--deep); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
