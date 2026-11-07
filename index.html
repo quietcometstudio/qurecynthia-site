@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Qurecynthia - a cozy fantasy RPG for Android</title>
+<meta name="description" content="Qurecynthia is a cozy fantasy RPG for Android, coming soon: fight monsters, gather and craft, and trade at a market where prices rise and fall through the day. From Quiet Comet Studio.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://qurecynthia.com/">
+<meta property="og:title" content="Qurecynthia">
+<meta property="og:description" content="A cozy fantasy RPG for Android, coming soon. Fight monsters, gather and craft, and trade at a market where prices rise and fall through the day.">
+<meta property="og:image" content="https://qurecynthia.com/img/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Qurecynthia">
+<style>
+  /* the two fonts hosted here (SIL Open Font License, fonts/OFL_*.txt): no visitor's browser asks Google for them */
+  @font-face { font-family: "Fredoka"; font-style: normal; font-weight: 300 700; font-display: swap; src: url("fonts/fredoka.woff2") format("woff2"); }
+  @font-face { font-family: "Nunito"; font-style: normal; font-weight: 200 1000; font-display: swap; src: url("fonts/nunito.woff2") format("woff2"); }
+  :root {
+    color-scheme: dark;
+    --night: #0a0f1c;
+    --deep: #0f1729;
+    --panel: #141e35;
+    --line: #26324f;
+    --cream: #f4ecd8;
+    --soft: #b9c0d4;
+    --gold: #f2c14e;
+    --gold-ink: #2a1d05;
+    --lamp: #ffd98a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--night);
+    color: var(--cream);
+    font: 17px/1.6 "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding-left: max(20px, env(safe-area-inset-left, 0px));
+    padding-right: max(20px, env(safe-area-inset-right, 0px));
+  }
+  h1, h2, h3 { font-family: "Fredoka", "Nunito", system-ui, sans-serif; font-weight: 600; text-wrap: balance; margin: 0; }
+  a { color: var(--lamp); }
+
+  /* the hero: Candlewick's square at night */
+  .hero {
+    position: relative;
+    min-height: min(78vh, 640px);
+    display: flex;
+    align-items: flex-end;
+    background: var(--deep) url("img/hero.jpg") center 40% / cover no-repeat;
+  }
+  .hero::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(10,15,28,0.15) 0%, rgba(10,15,28,0.35) 45%, var(--night) 100%);
+  }
+  .hero .wrap { position: relative; z-index: 1; width: 100%; padding-block: 48px 36px; }
+  .hero h1 {
+    font-size: clamp(44px, 9vw, 92px);
+    line-height: 1.02;
+    letter-spacing: 0.01em;
+    color: var(--cream);
+    text-shadow: 0 2px 18px rgba(0,0,0,0.55);
+  }
+  .tagline { font-size: clamp(18px, 2.6vw, 24px); color: var(--cream); margin: 10px 0 18px; max-width: 34ch; text-shadow: 0 1px 10px rgba(0,0,0,0.6); }
+  .pills { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 9px 16px; border-radius: 999px;
+    font: 600 15px/1 "Fredoka", "Nunito", sans-serif; letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+  .pill.soon { background: var(--gold); color: var(--gold-ink); }
+  .pill.follow { background: rgba(20,30,53,0.85); color: var(--cream); border: 1px solid var(--line); }
+  .pill.follow:hover { border-color: var(--lamp); }
+
+  /* sections */
+  section { padding-block: 44px; }
+  .lead { font-size: clamp(18px, 2.2vw, 21px); max-width: 62ch; color: var(--cream); margin: 0; }
+  .eyebrow { font: 600 13px/1 "Nunito", sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin: 0 0 12px; }
+
+  .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 28px; }
+  .feature { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 20px 20px 18px; min-width: 0; }
+  .feature h3 { font-size: 20px; color: var(--lamp); margin-bottom: 8px; }
+  .feature p { margin: 0; color: var(--soft); font-size: 16px; }
+
+  .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-top: 24px; }
+  .gallery figure { margin: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; min-width: 0; }
+  .gallery a { display: block; line-height: 0; }
+  .gallery img { width: 100%; max-width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+  .gallery figcaption { padding: 10px 14px 12px; font-size: 15px; color: var(--soft); }
+
+  .online { background: var(--deep); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .online h2 { font-size: clamp(24px, 3.4vw, 32px); margin-bottom: 10px; }
+  .online p { margin: 0; max-width: 62ch; color: var(--soft); }
+
+  footer { padding-block: 30px 40px; color: var(--soft); font-size: 15px; }
+  footer .row { display: flex; flex-wrap: wrap; gap: 8px 22px; justify-content: space-between; align-items: center; }
+  footer .studio { font-family: "Fredoka", "Nunito", sans-serif; font-weight: 500; color: var(--cream); }
+  .addr { user-select: all; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>Qurecynthia</h1>
+    <p class="tagline">A cozy fantasy RPG for Android.</p>
+    <div class="pills">
+      <span class="pill soon">Coming soon</span>
+      <a class="pill follow" href="https://x.com/Qurecynthia" target="_blank" rel="noopener">News on X: @Qurecynthia</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">The game</p>
+      <p class="lead">Fight monsters, gather and craft, and trade at a market where prices rise and fall through the day.</p>
+      <div class="features">
+        <div class="feature">
+          <h3>Towns with their own day</h3>
+          <p>Stalls open in the morning, lamps are lit at dusk, and the townsfolk walk home when it gets late.</p>
+        </div>
+        <div class="feature">
+          <h3>Places to explore</h3>
+          <p>Head out through the meadows, Quarry Hills, the Moonlit Wood, the Sunscorch Badlands and Starfall Peaks. Each place has its own monsters, and there are bosses to find.</p>
+        </div>
+        <div class="feature">
+          <h3>Two trades each</h3>
+          <p>Every character picks two trades: a fighting class (warrior, archer or mage) and a craft like alchemy, cooking or jewelcrafting. Or two crafts, if you'd rather make things than fight.</p>
+        </div>
+        <div class="feature">
+          <h3>A living market</h3>
+          <p>At the Trading Post, prices rise and fall through the day. Place buy and sell orders, read the charts, and listen for rumours that might move the market.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">A look around</p>
+      <div class="gallery">
+        <figure><a href="img/hearthcross.jpg"><img src="img/hearthcross.jpg" alt="Hearthcross's town square: a glowing crystal well, market stalls and townsfolk" loading="lazy" width="1600" height="900"></a><figcaption>Hearthcross, the market town</figcaption></figure>
+        <figure><a href="img/wood.jpg"><img src="img/wood.jpg" alt="A pond at night in the Moonlit Wood, with glowing mushrooms and fireflies" loading="lazy" width="1600" height="900"></a><figcaption>The Moonlit Wood</figcaption></figure>
+        <figure><a href="img/meadow.jpg"><img src="img/meadow.jpg" alt="A camp in the meadow: a tent, a campfire and autumn trees" loading="lazy" width="1600" height="900"></a><figcaption>The meadow camp</figcaption></figure>
+        <figure><a href="img/peaks.jpg"><img src="img/peaks.jpg" alt="Glowing blue crystals on a snowy mountain top in Starfall Peaks" loading="lazy" width="1600" height="900"></a><figcaption>Starfall Peaks</figcaption></figure>
+        <figure><a href="img/pond.jpg"><img src="img/pond.jpg" alt="A path by a pond as the lamps come on" loading="lazy" width="1600" height="900"></a><figcaption>Heading home as the lamps come on</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="online">
+    <div class="wrap">
+      <h2>Online, later</h2>
+      <p>It's a single-player world for now. Online play is planned for later: friends, guilds and a shared Trading Post.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap row">
+    <span class="studio">Quiet Comet Studio</span>
+    <span>Contact: <span class="addr">contact@qurecynthia.com</span></span>
+  </div>
+</footer>
+</body>
+</html>
